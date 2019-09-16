@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script>
+        document.addEventListener('postchange', function (event) {
+            console.log('postchange event', event);
+        });
+        function changeTab() {
+            document.getElementById('tabbar').setActiveTab(1);
+        }
+        function changeButton() {
+            document.getElementById('segment').setActiveButton(1);
+        }
+        function logIndexes() {
+            console.log('active button index', document.getElementById('segment').getActiveButtonIndex());
+            console.log('active tab index', document.getElementById('tabbar').getActiveTabIndex());
+        }
+    </script>
+    <style>
+     .page__background {
+            background-image: url("de2.jpg");
+            }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 50%;
+            height: 50%;
+            padding: 20 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 0px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: rgb(255, 188, 64);
+        }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 50%;
+
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+    <div class="toolbar">
+        <div class="toolbar__left">
+        </div>
+        <div class="toolbar__center">
+            Food category
+        </div>
+
+        <div class="toolbar__right">
+        </div>
+    </div>
+
+    <ons-page> 
+        <ons-toolbar>
+            <div class="center" >
+                <ons-segment id="segment" tabbar-id="tabbar">
+                    <button>&nbspCategory by type &nbsp &nbsp</button>
+                    <button>&nbspCategory by Country &nbsp &nbsp</button>
+                </ons-segment>
+            </div>
+        </ons-toolbar>
+
+        <ons-tabbar id="tabbar" >
+            <ons-tab page="page1.html" active></ons-tab>
+            <ons-tab page="page2.html"></ons-tab>
+            <ons-tab page="page3.html"></ons-tab>
+        </ons-tabbar>
+    </ons-page>
+
+    <template id="page1.html" >
+        <ons-page>
+            <div style="text-align: center; margin-top: 30px;">
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r"
+                        checked="checked">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Pick up &nbsp &nbsp
+                </label>
+
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Delivery
+                </label>
+            </div><br>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="food.png" alt="Smiley face" height="65" width="65">
+                        <br>Normal food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="fastfood.png" alt="Smiley face" height="65" width="65">
+                        <br>Fast food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'" ><img src="healthy.png" alt="Smiley face" height="65" width="65">
+                        <br>Healthy food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="dessert.png" alt="Smiley face" height="65" width="65">
+                        <br>Dessert </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'" ><img src="drink.png" alt="Smiley face" height="62" width="62">
+                        <br>Bฺeverage</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'" ><img src="fruits.png" alt="Smiley face" height="65" width="65">
+                        <br>Fruits</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'" ><img src="pizza.png" alt="Smiley face" height="65" width="65">
+                        <br>Pizza</div>
+                </div>
+            </div>
+
+            <button class="button--large--cta"
+                style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
+        </ons-page>
+    </template>
+
+
+
+    <template id="page2.html">
+        <ons-page>
+            <div style="text-align: center; margin-top: 30px;">
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r"
+                        checked="checked">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Pick up &nbsp &nbsp
+                </label>
+
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Delivery
+                </label>
+            </div><br>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="thailand.png" alt="Smiley face" height="75" width="75">
+                        <br>Thai food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="japan.png" alt="Smiley face" height="75" width="75">
+                        <br>Japan food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="france.png" alt="Smiley face" height="75" width="75">
+                        <br>France food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="south-korea.png" alt="Smiley face" height="75" width="75">
+                        <br>Korea food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="china.png" alt="Smiley face" height="75" width="75">
+                        <br>China food</div>
+                </div>
+            </div>
+
+            <button class="button--large--cta"
+                style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
+        </ons-page>
+    </template>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"> -->
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script>
+
+    </script>
+    <style>
+        .page__background {
+            background-image: url("menu5.jpg");
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        body {
+            background-image: url("de1.jpg");
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #ffce89;
+        }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+    <ons-page>
+        <div class="toolbar">
+            <div class="toolbar__left">
+            </div>
+
+            <div class="toolbar__center">
+                Resturant Menu
+            </div>
+
+            <div class="toolbar__right">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="card"><img src="shop1.png" alt="Smiley face" height="150" width="150">
+                    <br><br>
+                    <ons-col>
+                        <font size="6">Whole foods</font>
+                        <br><br>&#11088; &#11088; &#11088; &#11088;<br>
+                        (3614 review)
+                        <br><br> Delivery cost : 15$~ <br><br>
+                        <hr>
+                        <h2>Starters</h2>
+      
+                        <ons-row>
+                                <ons-col width="150px"><img src="menu5.jpg" height="80" width="100"> </ons-col>
+                                <ons-col>
+                                    <font size="3">BURRATA CHEESE</font>
+                                    <br><br>&#11088; &#11088; &#11088; <br><br> 17$
+
+                                    <ons-button class="button" onclick="window.location.href='payment.html'"style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
+                                </ons-col>
+                                Served with toasted focaccia and churrasco.
+                                <br><br>
+                        </ons-col>
+                        </ons-row><br>
+                        
+                        <ons-row>
+                                <ons-col width="150px"><img src="menu6.jpg" height="80" width="100"> </ons-col>
+                                <ons-col>
+                                    <font size="3"> STICKY CHIPOTLE CHICKEN</font>
+                                    <br><br>&#11088; &#11088; &#11088; &#11088;   <br><br> 25$
+                                    <ons-button class="button" onclick="window.location.href='payment.html'" style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
+                                </ons-col>
+                    
+                                Sweet chipotle chilli-glazed chicken bites with toasted sesame seeds.
+                                <br><br>
+                        </ons-col>
+                        </ons-row>
+
+                        <br><br><hr>
+                        <br> <h2>Main menu</h2><br>
+
+                     <ons-row>
+                            <ons-col width="150px"><img src="menu1.jpg" height="80" width="100"> </ons-col>
+                            <ons-col>
+                                <font size="3">ARTISAN BREAD BOARD</font>
+                                <br><br>&#11088; &#11088; &#11088; &#11088;   <br><br> 37$
+                                <ons-button class="button" onclick="window.location.href='payment.html'" style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
+                            </ons-col>
+                            Served with blended bone marrow & beef dripping,
+                            <br><br>
+                    </ons-col>
+                    </ons-row><br>
+
+                    <ons-row>
+                        <ons-col width="150px"><img src="menu2.jpg" height="80" width="100"> </ons-col>
+                        <ons-col>
+                            <font size="3">BACON & SMOKED CHEDDAR BURGER</font>
+                            <br><br>&#11088; &#11088; &#11088;  <br><br> 34$
+                            <ons-button class="button" onclick="window.location.href='payment.html'" style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
+                        </ons-col>
+                        Topped with smoked streaky bacon and smoked Cheddar cheese.
+                        <br><br>
+                        </ons-col>
+                    </ons-row><br>
+
+                    <ons-row>
+                        <ons-col width="150px"><img src="menu4.jpg" height="80" width="100"> </ons-col>
+                        <ons-col>
+                            <font size="3">B  SMOKY BARBECUE RIBS - FULL</font>
+                            <br><br>&#11088; &#11088; &#11088; &#11088;  <br><br> 49$
+                            <ons-button class="button" onclick="window.location.href='payment.html'" style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
+                        </ons-col>
+                        Served with seasoned fries and dressed slaw.
+                        <br><br>
+                        </ons-col>
+                    </ons-row>
+                    <select class="select-input">
+                            <option>Food</option>
+                            <option>Drinks</option>
+                            <option>Dessert</option>
+                    </select>
+                          
+                </div>
+            </div>
+        </div>
+</body>
+</html>

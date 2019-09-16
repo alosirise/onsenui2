@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"> -->
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // Initialization code
+            $('ons-button').on('click', function (e) {
+                ons.notification.alert('Log in success !');
+            })
+        });
+
+    </script>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+    </style>
+
+
+    <div class="toolbar">
+        <div class="toolbar__left">
+
+        </div>
+
+        <div class="toolbar__center">
+            Log in
+        </div>
+
+        <div class="toolbar__right">
+
+        </div>
+    </div>
+
+<ons-card>
+<!-- <div class="card"> -->
+    <div style="text-align: center; margin-top: 30px;">
+        <!-- <img src="http://www.akodiaonline.com/images/login.png" alt="Onsen UI" style="width: 20% "> -->
+        <i class="fas fa-sign-in-alt fa-4x "></i><br><br>
+        <p>
+            <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+        </p>
+        <p>
+            <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+        </p>
+        <div style="text-align: center; margin-top: 30px;">
+            <label class="switch switch--material">
+                <input type="checkbox" class="switch__input switch--material__input">
+                <div class="switch__toggle switch--material__toggle">
+                    <div class="switch__handle switch--material__handle">
+                    </div>
+                </div>
+
+            </label>
+            <font size="2"> Remember me!</font>
+        
+        </div>
+        <p style="margin-top: 35px;">
+            <ons-button onclick="window.location.href='Food Category.html'">Log in</ons-button><br><br>
+            or
+            <br><hr><br>
+            <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login()">Sign in with Facebook</ons-button><br><br>
+            <ons-button class="button"  style="background-color : rgb(230, 32, 32)" onclick="login()">Sign in with Google </ons-button>
+            <br><br><a href="#"><font size="2"> Forgot password ?</font></a> // 
+            <a href="register.html"><font size="2"> Create Account</font></a>
+        </p>
+      
+    </div>
+  
+</ons-card>
+
+</body>
+
+</html>
