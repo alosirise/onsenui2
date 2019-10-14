@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <script>
+      
+    </script>
+    <style>
+     .page__background {
+            background-image: url("de2.jpg");
+            }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 50%;
+            height: 50%;
+            padding: 20 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Remove extra left and right margins, due to padding in columns */
+        .row {
+            margin: 0 0px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            /* this adds the "card" effect */
+            padding: 16px;
+            text-align: center;
+            background-color: rgb(255, 188, 64);
+        }
+
+        /* Responsive columns - one column layout (vertical) on small screens */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 50%;
+
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+   <ons-page>
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button onclick="prev()">
+        <ons-icon icon="md-chevron-left"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center">Carousel</div>
+    <div class="right">
+      <ons-toolbar-button onclick="next()">
+        <ons-icon icon="md-chevron-right"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <ons-carousel swipeable  overscrollable id="carousel">
+    <ons-carousel-item style="background-color: #085078;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        BLUE
+      </div>
+    </ons-carousel-item>
+    <ons-carousel-item style="background-color: #373B44;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        DARK
+      </div>
+    </ons-carousel-item>
+    <ons-carousel-item style="background-color: #D38312;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        ORANGE
+      </div>
+    </ons-carousel-item>
+  </ons-carousel>
+</ons-page>
+
+
+
+</body>
+
+</html>

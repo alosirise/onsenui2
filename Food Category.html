@@ -128,6 +128,43 @@
                 </label>
             </div><br>
 
+<!--  -->
+    
+                <ons-toolbar>
+                  <div class="left">
+                    <ons-toolbar-button onclick="prev()">
+                      <ons-icon icon="md-chevron-left"></ons-icon>
+                    </ons-toolbar-button>
+                  </div>
+                  <div class="center">Carousel</div>
+                  <div class="right">
+                    <ons-toolbar-button onclick="next()">
+                      <ons-icon icon="md-chevron-right"></ons-icon>
+                    </ons-toolbar-button>
+                  </div>
+                </ons-toolbar>
+              
+                <ons-carousel swipeable  overscrollable id="carousel">
+                  <ons-carousel-item style="background-color: #085078;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                      BLUE
+                    </div>
+                  </ons-carousel-item>
+                  <ons-carousel-item style="background-color: #373B44;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                      DARK
+                    </div>
+                  </ons-carousel-item>
+                  <ons-carousel-item style="background-color: #D38312;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                      ORANGE
+                    </div>
+                  </ons-carousel-item>
+                </ons-carousel>
+         
+              
+<!--  -->
+
             <div class="row">
                 <div class="column">
                     <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="food.png" alt="Smiley face" height="65" width="65">
