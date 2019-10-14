@@ -12,32 +12,16 @@
     <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
     <link rel="stylesheet" href="onsen/css/onsenui.css">
     <!-- google -->
-    <meta name="google-signin-client_id"
+    <!-- <meta name="google-signin-client_id"
         content="399149605552-h3bs7hmmv7rpla8i9238vt8hq3e3vtbv.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 <body>
-
-    <script>
-        $(function () {
-            // Initialization code
-            $('ons-button').on('click', function (e) {
-                ons.notification.alert('Log in success !');
-            })
-        });
-
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId());
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail());
-        }
-    </script>
-
     <style>
         body {
             background-color: powderblue;
@@ -87,9 +71,14 @@
                 or
                 <br>
                 <hr><br>
-                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login()">Sign in with
+                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login2()">Sign in with
                     Facebook</ons-button><br><br>
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <ons-button id="login" class="button" style="background-color : rgb(40, 40, 185)">Sign
+                    in with
+                    google</ons-button><br><br>
+                <!-- <center>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </center> -->
 
                 <br><br><a href="#">
                     <font size="2"> Forgot password ?</font>
@@ -98,34 +87,16 @@
                     <font size="2"> Create Account</font>
                 </a>
             </p>
-
         </div>
-
     </ons-card>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBe-ShFjOxDNKd6q7aZVDiH7nNOCi5-T0k",
-            authDomain: "food-66c56.firebaseapp.com",
-            databaseURL: "https://food-66c56.firebaseio.com",
-            projectId: "food-66c56",
-            storageBucket: "food-66c56.appspot.com",
-            messagingSenderId: "993618026845",
-            appId: "1:993618026845:web:661c7c768e2cbe20cfc8b4",
-            measurementId: "G-Z20297TKBR"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
+        <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <!-- firebaseUI -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+ <script link src="app.js"></script>
 </body>
 
 </html>
