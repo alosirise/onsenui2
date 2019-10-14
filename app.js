@@ -1,12 +1,4 @@
 
-            // function onSignIn(googleUser) {
-            //     var profile = googleUser.getBasicProfile();
-            //     console.log('ID: ' + profile.getId());
-            //     console.log('Name: ' + profile.getName());
-            //     console.log('Image URL: ' + profile.getImageUrl());
-            //     console.log('Email: ' + profile.getEmail());
-            // }
-             // Your web app's Firebase configuration
              var firebaseConfig = {
                 apiKey: "AIzaSyBe-ShFjOxDNKd6q7aZVDiH7nNOCi5-T0k",
                 authDomain: "food-66c56.firebaseapp.com",
@@ -22,30 +14,32 @@
             firebase.analytics();
     
             var provider = new firebase.auth.GoogleAuthProvider();
-            
-            $(function () {
-                // Initialization code
-                $('ons-button').on('click', function (e) {
-                    ons.notification.alert('Log in success !');
-                })
-            });
+
+            // $(function () {
+            //     // Initialization code
+            //     $('ons-button').on('click', function (e) {
+            //         ons.notification.alert('Log in success !');
+            //     })
+            // });
 
                 $("#login").click(function () {
-                    firebase.auth().signInWithPopup(provider).then(function (result) {
-                        // This gives you a Google Access Token. You can use it to access the Google API.
-                        var token = result.credential.accessToken;
-                        // The signed-in user info.
-                        var user = result.user;
-                        // ...
-                    }).catch(function (error) {
-                        // Handle Errors here.
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        // The email of the user's account used.
-                        var email = error.email;
-                        // The firebase.auth.AuthCredential type that was used.
-                        var credential = error.credential;
-                        // ...
-                    });
+                    // firebase.auth().signInWithRedirect(provider);
+                    var provider = new firebase.auth.GoogleAuthProvider();       
+                    firebase.auth().signInWithPopup(provider).then(function(result) {      
+                      content.load('Food%20Category.html')
+                              .then(menu.close.bind(menu));
+                   
+                    }).catch(function(error) {
+                        console.log(error);
+                    });       
+                    // firebase.auth().signInWithPopup(provider).then(function (result) {
+                    //     var token = result.credential.accessToken;         
+                    //     var user = result.user;                
+                    // }).catch(function (error) {                  
+                    //     var errorCode = error.code;
+                    //     var errorMessage = error.message;                    
+                    //     var email = error.email;                     
+                    //     var credential = error.credential;   
+                    // }); 
                 })
-          
+            

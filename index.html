@@ -2,21 +2,18 @@
 <html>
 
 <head>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"> -->
     <script src="onsen/js/onsenui.min.js"></script>
     <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
 
     <script src="onsen/js/onsenui.js"></script>
-    <script src="jquery/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
     <link rel="stylesheet" href="onsen/css/onsenui.css">
-    <!-- google -->
-    <!-- <meta name="google-signin-client_id"
-        content="399149605552-h3bs7hmmv7rpla8i9238vt8hq3e3vtbv.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
- 
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script> -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
@@ -29,18 +26,10 @@
     </style>
 
 
-    <div class="toolbar">
-        <div class="toolbar__left">
-
-        </div>
-
+    <div class="toolbar"> 
         <div class="toolbar__center">
             Log in
-        </div>
-
-        <div class="toolbar__right">
-
-        </div>
+    </div>
     </div>
 
     <ons-card>
@@ -71,15 +60,9 @@
                 or
                 <br>
                 <hr><br>
-                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login2()">Sign in with
-                    Facebook</ons-button><br><br>
-                <ons-button id="login" class="button" style="background-color : rgb(40, 40, 185)">Sign
-                    in with
-                    google</ons-button><br><br>
-                <!-- <center>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                </center> -->
-
+                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login2()">Sign in with Facebook</ons-button><br><br>
+                <ons-button id="login" class="button" style="background-color : rgb(219, 24, 24)">Sign in with google</ons-button><br><br>
+        
                 <br><br><a href="#">
                     <font size="2"> Forgot password ?</font>
                 </a> //
@@ -90,13 +73,7 @@
         </div>
     </ons-card>
 
-        <!-- firebase -->
-  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-  <!-- firebaseUI -->
-  <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+ 
  <script link src="app.js"></script>
 </body>
-
 </html>
