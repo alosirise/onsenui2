@@ -15,18 +15,18 @@
     
             var provider = new firebase.auth.GoogleAuthProvider();
 
-            // $(function () {
-            //     // Initialization code
-            //     $('ons-button').on('click', function (e) {
-            //         ons.notification.alert('Log in success !');
-            //     })
-            // });
+            $(function () {
+                // Initialization code
+                $('ons-button').on('click', function (e) {
+                    ons.notification.alert('Log in success !');
+                })
+            });
 
                 $("#login").click(function () {
                     // firebase.auth().signInWithRedirect(provider);
                     var provider = new firebase.auth.GoogleAuthProvider();       
                     firebase.auth().signInWithPopup(provider).then(function(result) {      
-                      content.load('Food%20Category.html')
+                      content.load('home.html')
                               .then(menu.close.bind(menu));
                    
                     }).catch(function(error) {
@@ -43,3 +43,57 @@
                     // }); 
                 })
             
+
+                var db = firebase.firestore();
+
+                document.addEventListener('init', function (event) {
+                var page = event.target;
+
+
+                if (page.id === 'homePage') {
+                    console.log("homePage");
+
+                    $("#menubtn").click(function () {
+                    $("#sidemenu")[0].open();
+                    });
+
+                    $("#carousel").empty();
+                    db.collection("recommended").get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {       
+                        var item = `<ons-carousel-item modifier="nodivider" id="item${doc.data().id}" class="recomended_item">
+                            <div class="thumbnail" style="background-image: url('${doc.data().photoUrl}')">
+                            </div>
+                            <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
+                        </ons-carousel-item>`
+                        $("#carousel").append(item);
+                    });
+                    });
+                }
+
+                if (page.id === 'menuPage') {
+                    console.log("menuPage");
+
+                    $("#login").click(function () {
+                    $("#content")[0].load("login.html");
+                    $("#sidemenu")[0].close();
+                    });
+
+                    $("#home").click(function () {
+                    $("#content")[0].load("home.html");
+                    $("#sidemenu")[0].close();
+                    });
+                }
+
+                if (page.id === 'loginPage') {
+                    console.log("loginPage");
+
+                    $("#backhomebtn").click(function () {
+                    $("#content")[0].load("home.html");
+                    });
+                }
+                });
+
+
+
+
+                

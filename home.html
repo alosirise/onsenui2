@@ -1,26 +1,154 @@
-<!DOCTYPE html>
-<html>
+<ons-page id= "homePage">
+    <ons-toolbar>
+        <div class="center">
+            <ons-segment id="segment" tabbar-id="tabbar">
+                <button>&nbspCategory by type &nbsp &nbsp</button>
+                <button>&nbspCategory by Country &nbsp &nbsp</button>
+            </ons-segment>
+        </div>
+    </ons-toolbar>
 
-<head>
-    <script src="onsen/js/onsenui.min.js"></script>
-    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <ons-tabbar  position="auto" id="tabbar">
+        <ons-tab page="page1.html" active></ons-tab>
+        <ons-tab page="page2.html"></ons-tab>
+    </ons-tabbar>
 
-    <script src="onsen/js/onsenui.js"></script>
-    <script src="jquery/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
-    <link rel="stylesheet" href="onsen/css/onsenui.css">
+    <template id="page1.html">
+        <ons-page>
+            <div style="text-align: center; margin-top: 30px;">
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r"
+                        checked="checked">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Pick up &nbsp &nbsp
+                </label>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Delivery
+                </label>
+            </div><br>
 
-<body>
-    <script>
-      
-    </script>
-    <style>
-     .page__background {
+            <!--  -->
+            <ons-carousel swipeable overscrollable id="carousel">
+                <ons-carousel-item style="background-color: #085078;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                        BLUE
+                    </div>
+                </ons-carousel-item>
+
+                <ons-carousel-item style="background-color: #D38312;">
+                    <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+                        ORANGE
+                    </div>
+                </ons-carousel-item>
+            </ons-carousel>
+
+
+            <!--  -->
+
+            <div class="row">
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="food.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Normal food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="fastfood.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Fast food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="healthy.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Healthy food </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="dessert.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Dessert </div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="drink.png"
+                            alt="Smiley face" height="62" width="62">
+                        <br>Bฺeverage</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="fruits.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Fruits</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="pizza.png"
+                            alt="Smiley face" height="65" width="65">
+                        <br>Pizza</div>
+                </div>
+            </div>
+
+            <button class="button--large--cta"
+                style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
+        </ons-page>
+    </template>
+
+
+
+
+    <template id="page2.html">
+        <ons-page>
+            <div style="text-align: center; margin-top: 30px;">
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r"
+                        checked="checked">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Pick up &nbsp &nbsp
+                </label>
+
+                <label class="radio-button radio-button--material">
+                    <input type="radio" class="radio-button__input radio-button--material__input" name="r">
+                    <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+                    Delivery
+                </label>
+            </div><br>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="thailand.png"
+                            alt="Smiley face" height="75" width="75">
+                        <br>Thai food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="japan.png"
+                            alt="Smiley face" height="75" width="75">
+                        <br>Japan food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="france.png"
+                            alt="Smiley face" height="75" width="75">
+                        <br>France food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="south-korea.png"
+                            alt="Smiley face" height="75" width="75">
+                        <br>Korea food</div>
+                </div>
+                <div class="column">
+                    <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="china.png"
+                            alt="Smiley face" height="75" width="75">
+                        <br>China food</div>
+                </div>
+            </div>
+
+            <button class="button--large--cta"
+                style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
+        </ons-page>
+    </template>
+
+
+    <style type="text/css">
+        .page__background {
             background-image: url("de2.jpg");
-            }
+        }
 
         * {
             box-sizing: border-box;
@@ -70,11 +198,4 @@
             }
         }
     </style>
-
-   
-
-
-
-</body>
-
-</html>
+</ons-page>

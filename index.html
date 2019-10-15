@@ -1,79 +1,40 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <script src="onsen/js/onsenui.min.js"></script>
-    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Food </title>
 
-    <script src="onsen/js/onsenui.js"></script>
-    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
-    <link rel="stylesheet" href="onsen/css/onsenui.css">
+  <script src="onsen/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="onsen/js/onsenui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script> -->
-
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+  <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+  <link rel="stylesheet" href="onsen/css/onsenui.css">
 </head>
 
 <body>
-    <style>
-        body {
-            background-color: powderblue;
-        }
-    </style>
+  <ons-navigator id="myNavigator" page="splitter.html">
+  </ons-navigator>
+
+  <template id="splitter.html">
+    <ons-page>
+      <ons-splitter id="mySplitter">
+        <ons-splitter-side id="sidemenu" page="menu.html" swipeable width="250px" collapse swipe-target-width="50px">
+        </ons-splitter-side>
+        <ons-splitter-content page="home.html" id="content">
+        </ons-splitter-content>
+      </ons-splitter>
+    </ons-page>
+  </template> 
 
 
-    <div class="toolbar"> 
-        <div class="toolbar__center">
-            Log in
-    </div>
-    </div>
-
-    <ons-card>
-        <!-- <div class="card"> -->
-        <div style="text-align: center; margin-top: 30px;">
-            <!-- <img src="http://www.akodiaonline.com/images/login.png" alt="Onsen UI" style="width: 20% "> -->
-            <i class="fas fa-sign-in-alt fa-4x "></i><br><br>
-            <p>
-                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-            </p>
-            <p>
-                <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-            </p>
-            <div style="text-align: center; margin-top: 30px;">
-                <label class="switch switch--material">
-                    <input type="checkbox" class="switch__input switch--material__input">
-                    <div class="switch__toggle switch--material__toggle">
-                        <div class="switch__handle switch--material__handle">
-                        </div>
-                    </div>
-
-                </label>
-                <font size="2"> Remember me!</font>
-
-            </div>
-            <p style="margin-top: 35px;">
-                <ons-button onclick="window.location.href='Food Category.html'">Log in</ons-button><br><br>
-                or
-                <br>
-                <hr><br>
-                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login2()">Sign in with Facebook</ons-button><br><br>
-                <ons-button id="login" class="button" style="background-color : rgb(219, 24, 24)">Sign in with google</ons-button><br><br>
-        
-                <br><br><a href="#">
-                    <font size="2"> Forgot password ?</font>
-                </a> //
-                <a href="register.html">
-                    <font size="2"> Create Account</font>
-                </a>
-            </p>
-        </div>
-    </ons-card>
-
- 
- <script link src="app.js"></script>
+  
+  <script src="app.js"></script>
 </body>
+
 </html>
