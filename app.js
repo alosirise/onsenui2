@@ -37,17 +37,53 @@ document.addEventListener('init', function (event) {
             $("#sidemenu")[0].open();
         });
 
-        // $("#carousel").empty();
-        // db.collection("recommended").get().then((querySnapshot) => {
-        //     querySnapshot.forEach((doc) => {
-        //         var item = `<ons-carousel-item modifier="nodivider" id="item${doc.data().id}" class="recomended_item">
-        //                     <div class="thumbnail" style="background-image: url('${doc.data().photoUrl}')">
-        //                     </div>
-        //                     <div class="recomended_item_title" id="item1_${doc.data().id}">${doc.data().name}</div>
-        //                 </ons-carousel-item>`
-        //         $("#carousel").append(item);
-        //     });
-        // });
+        db.collection("category").get().then((querySnapshot) => {
+           
+            querySnapshot.forEach((doc) => {
+                var item = `<div class="column">
+                <div class="card" onclick="window.location.href='Resturant_List.html'"><img src="${doc.data().pic}"
+                        alt="Smiley face" height="65" width="65">
+                    <br>${doc.data().name}</div>
+                  </div>`
+                    
+                $("#menucategory").append(item);
+                console.log("db category append");
+            });
+        });
+
+
+
+        db.collection("recommend").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+
+                var item2=`
+                
+                
+                
+                <ons-carousel-item modifier="nodivider" id="item1" class="recomended_item">
+                <div class="thumbnail">
+                <img src="${doc.data().pic}"
+                alt="Smiley face" height="45" width="45">
+                </div>
+            </ons-carousel-item>     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                `
+                  $("#recommend").append(item2);
+                console.log("db recommend append");
+            });
+        });
+        
+        // <div class="recomended_item_title" id="item1_${doc.data().pic}">${doc.data().name}</div>    
     }
 
     if (page.id === 'menuPage') {
