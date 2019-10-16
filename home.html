@@ -1,24 +1,20 @@
 <ons-page id= "homePage">
-    <!-- <ons-toolbar>
+    <ons-toolbar>
         <div class="center">
-                <button id="menubtn">zxc</button> 
-            <ons-segment id="segment" tabbar-id="tabbar" >
+            <ons-segment id="segment" tabbar-id="tabbar">
                 <button>&nbspCategory by type &nbsp &nbsp</button>
                 <button>&nbspCategory by Country &nbsp &nbsp</button>
             </ons-segment>
         </div>
-    </ons-toolbar> -->
-  
+    </ons-toolbar>
 
+    <ons-tabbar  position="auto" id="tabbar">
+        <ons-tab page="page1.html" active></ons-tab>
+        <ons-tab page="page2.html"></ons-tab>
+    </ons-tabbar>
 
-    <!-- <template id="page1.html"> -->
+    <template id="page1.html">
         <ons-page>
-                <ons-toolbar >
-                        <button id="menubtn">zxc</button> 
-                        <div class="toolbar__center" >
-                            Food Category
-                        </div>
-                </ons-toolbar>
             <div style="text-align: center; margin-top: 30px;">
                 <label class="radio-button radio-button--material">
                     <input type="radio" class="radio-button__input radio-button--material__input" name="r"
@@ -34,7 +30,7 @@
                 </label>
             </div><br>
 
-           
+            <!--  -->
             <ons-carousel swipeable overscrollable id="carousel">
                 <ons-carousel-item style="background-color: #085078;">
                     <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
@@ -50,6 +46,7 @@
             </ons-carousel>
 
 
+            <!--  -->
 
             <div class="row">
                 <div class="column">
@@ -92,12 +89,12 @@
             <button class="button--large--cta"
                 style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
         </ons-page>
-    <!-- </template> -->
+    </template>
 
 
 
 
-    <!-- <template id="page2.html">
+    <template id="page2.html">
         <ons-page>
             <div style="text-align: center; margin-top: 30px;">
                 <label class="radio-button radio-button--material">
@@ -145,7 +142,7 @@
             <button class="button--large--cta"
                 style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">More..</button>
         </ons-page>
-    </template> -->
+    </template>
 
 
     <style type="text/css">
