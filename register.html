@@ -1,46 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"> -->
-    <script src="onsen/js/onsenui.min.js"></script>
-    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
-
-    <script src="onsen/js/onsenui.js"></script>
-    <script src="jquery/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
-    <link rel="stylesheet" href="onsen/css/onsenui.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <script>
-        $(function () {
-            // Initialization code
-            $('ons-button').on('click', function (e) {
-                ons.notification.alert('Register success !');
-            })
-        });
-
-    </script>
-    <style>
-        body {
-            background-color: powderblue;
-        }
-    </style>
-
-
+<on-page>
     <div class="toolbar">
-        <div class="toolbar__left">
-        </div>
-
         <div class="toolbar__center">
             Register
-        </div>
-
-        <div class="toolbar__right">
         </div>
     </div>
 
@@ -55,17 +16,13 @@
             <p>
                 <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
             </p>
-
             <p>
                 <ons-input id="Confirmpassword" modifier="underbar" type="password" placeholder="Confirm password"
                     float></ons-input>
             </p>
-
             <p>
                 <ons-input id="phonenumber" modifier="underbar" placeholder="Phone number" float></ons-input>
             </p>
-
-
 
             <div style="text-align: center; margin-top: 30px;">
                 <label class="radio-button radio-button--material">
@@ -86,11 +43,15 @@
                 <ons-button style="background-color : rgb(206, 140, 17)" onclick="login()">Create an Account!
                 </ons-button><br><br>
                 or <br><br>
-                <ons-button style="background-color : rgb(28, 133, 219)" onclick="window.location.href='index.html'">
+                <ons-button style="background-color : rgb(28, 133, 219)" onclick="window.location.href='login.html'">
                     Back</ons-button><br><br>
 
         </div>
     </ons-card>
-</body>
 
-</html>
+     <style>
+        body {
+            background-color: powderblue;
+        }
+    </style>
+</on-page>
