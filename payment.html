@@ -1,103 +1,54 @@
-<!DOCTYPE html>
-<html>
+<ons-page id="paymentpage">
+        <ons-toolbar>
+                <button id="menubtn">zxc</button> 
+                <div class="toolbar__center">
+                    Payment
+                </div>
+        </ons-toolbar>
+       
+    <div style="text-align: center; margin-top: 30px;">
+        <h2>Your order</h2>
+        <center><img src="shop1.png" height="80" width="100"> </center>
 
-<head>
-    <script src="onsen/js/onsenui.min.js"></script>
-    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+        <p style="margin-top: 35px;">
+            <ons-card>
+                <ons-row>
+                    <ons-col>&nbsp;&nbsp;Quantity
+                        <br><br> &emsp;1<br><br><br><br>&emsp;3
+                    </ons-col>
+                    <br>
+                    <ons-col>&nbsp;Name
+                        <br><br>ARTISAN BREAD BOARD
+                        <br><br>STICKY CHIPOTLE CHICKEN
+                    </ons-col>
+                    <br>
+                    <ons-col> &nbsp;&nbsp;&emsp;&emsp;Price
+                        <br><br>&emsp;&emsp;&emsp;37$
+                        <br><br>
+                        <br><br>&emsp;&emsp;&emsp;75$
+                    </ons-col>
+                </ons-row>
+            </ons-card>
 
-    <script src="onsen/js/onsenui.js"></script>
-    <script src="jquery/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
-    <link rel="stylesheet" href="onsen/css/onsenui.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <script>
-        $(function () {
-            $('ons-button').on('click', function (e) {
-                ons.notification.alert('Success !');
-            })
-        });
-
-    </script>
+            Pay : <br><hr><br>
+            <ons-button class="button" style="background-color : rgb(235, 160, 20)">Credit or Debit card
+            </ons-button><br><br>
+            <ons-button class="button" style="background-color : rgb(40, 40, 185)">Paypal</ons-button><br><br>
+            <ons-button class="button" style="background-color : rgb(230, 32, 32)">Cash delivery</ons-button>
+            <br>
+            <br>
+        </p>
+    </div>
     <style>
         .page__background {
             background-color: rgb(154, 190, 201);
-            }
-            .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
 
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             padding: 16px;
             text-align: center;
             background-color: #fff0bd;
         }
     </style>
-
-
-    <div class="toolbar">
-        <div class="toolbar__left">
-
-        </div>
-
-        <div class="toolbar__center">
-            Payment
-        </div>
-
-        <div class="toolbar__right">
-
-        </div>
-    </div>
-    <ons-page>
-        
-        <!-- <div class="card"> -->
-        <div style="text-align: center; margin-top: 30px;">
-            <h2>Your order</h2>
-            <center><img src="shop1.png" height="80" width="100"> </center>
-
-            <p style="margin-top: 35px;">
-
-                <ons-card>
-                    <ons-row>
-                        <ons-col>&nbsp;&nbsp;Quantity
-                            <br><br> 
-                            &emsp;1
-                            <br><br>
-                            <br><br> 
-                            &emsp;3
-
-                        </ons-col>
-                        <br>
-                        <ons-col>&nbsp;Name
-                            <br><br>ARTISAN BREAD BOARD
-                            <br><br>STICKY CHIPOTLE CHICKEN 
-                        </ons-col>
-                        
-                        <br>
-                        <ons-col> &nbsp;&nbsp;&emsp;&emsp;Price
-                            <br><br>&emsp;&emsp;&emsp;37$
-                            <br><br>
-                            <br><br>&emsp;&emsp;&emsp;75$
-                        </ons-col>
-                    </ons-row>
-                </ons-card>
-
-                Pay :
-                <br>
-                <hr>
-                <br>
-                <ons-button class="button" style="background-color : rgb(235, 160, 20)">Credit or Debit card
-                </ons-button><br><br>
-                <ons-button class="button" style="background-color : rgb(40, 40, 185)">Paypal</ons-button><br><br>
-                <ons-button class="button" style="background-color : rgb(230, 32, 32)">Cash delivery</ons-button>
-                <br>
-                <br>
-            </p>
-        </div>
-
-    
 </ons-page>
-</body>
-
-</html>
