@@ -1,16 +1,15 @@
 <ons-page id="loginPage">
-        <ons-toolbar >
-                <button id="menubtn">zxc</button> 
-                <div class="toolbar__center" >
-                    Log in
-                </div>
-        </ons-toolbar>
-
+    
+        <button id="menubtn">zxc</button>
+    <div> 
+        <br><br>
+    </div>
     <ons-card>
-        <div style="text-align: center; margin-top: 30px;">
-            <i class="fas fa-sign-in-alt fa-4x "></i><br><br>
-            <p>
-                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+        <div style="text-align: center; margin-top: 20px;">
+                <img src="iconlogin.png"
+                height="170" width="170">
+                <br><br><p>
+                <ons-input id="username" modifier="underbar" placeholder="Email" float></ons-input>
             </p>
             <p>
                 <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
@@ -25,25 +24,44 @@
 
                 </label>
                 <font size="2"> Remember me!</font>
+            </div><br><br>
 
-            </div>
-            <p style="margin-top: 35px;">
-                <ons-button id="signinbtn">Log in</ons-button><br><br>
-                or
-                <br>
-                <hr><br>
-                <ons-button class="button" style="background-color : rgb(40, 40, 185)" onclick="login()">Sign in with
-                    Facebook</ons-button><br><br>
-                <ons-button id="googlelogin" class="button" style="background-color : rgb(219, 24, 24)">Sign in with google
-                </ons-button><br><br>
+            <ons-button class="button " style="background-color : rgb(0, 134, 29);" id="signinbtn"> &nbsp;Log in&nbsp;
+            </ons-button><br><br>
+            or
+            <br>
+            <hr><br>
 
-                <br><br><a href="#">
-                    <font size="2"> Forgot password ?</font>
-                </a> //
-                <a href="register.html">
-                    <font size="2"> Create Account</font>
-                </a>
-            </p>
+            <ons-button class="button button5" style="background-color : rgb(40, 40, 185)" onclick="login()">&nbsp;
+                <ion-icon style=" margin-top: 3px;" size="large" name="logo-facebook"></ion-icon>&nbsp;Sign in with
+                Facebook&nbsp;&nbsp;</ons-button><br><br>
+            <ons-button id="googlelogin" class="button button5" style="background-color : rgb(219, 24, 24)">
+                <div><ion-icon style=" margin-top: 3px;" size="large"  name="logo-googleplus"></ion-icon></div>&nbsp;Sign in with
+                google&nbsp;&nbsp;
+            </ons-button><br><br>
+
+            <br><br><a href="#">
+                <font size="2"> Forgot password ?</font>
+            </a> //
+
+            <u>
+                <font size="2" id="register"> Create Account</font>
+            </u>
+
         </div>
     </ons-card>
+    <style>
+        .page__background {
+            background-image: url("de1.jpg");
+        }
+
+        .button5 {
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        .custom-icon {
+            font-size: 80px;
+            color: rgb(255, 108, 108);
+        }
+    </style>
 </ons-page>

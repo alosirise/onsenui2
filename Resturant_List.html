@@ -1,113 +1,58 @@
-<ons-page>
-        <div class="toolbar">
-            <div class="toolbar__center">
-                Resturant List
-            </div>
-        </div>
+<ons-page id='resturantpage'>
+    <!-- <ons-toolbar>
+                <div class="left">
+                        <ons-toolbar-button>
+                                <ion-icon style=" margin-top: 6px;" size="large" id="menubtn" name="contact"></ion-icon>
+                        </ons-toolbar-button>
+                </div>
+                <div class="toolbar__center" >
+                    Resturant List
+                </div>
+                <div class="right">
+                        <ons-toolbar-button>
+                                <ion-icon style=" margin-top: 6px;" size="large" id="cartbtn" name="cart"></ion-icon>
+                        </ons-toolbar-button>
+                </div>
+                              
+        </ons-toolbar> -->
+    <div>
+        <br><br>
+    </div>
 
-        <br>
-        <p style="text-align: center; margin-top: 10px;">
-            <ons-search-input placeholder="Search" onchange="ons.notification.alert('Searched for: ' + this.value)">
-            </ons-search-input>
-        </p><br>
+    <br>
+    <p style="text-align: center; margin-top: 10px;">
+        <ons-search-input placeholder="Search" onchange="ons.notification.alert('Searched for: ' + this.value)">
+        </ons-search-input>
+    </p><br>
 
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop1.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">Whole foods</font> 
-                    <br><br>&#11088; &#11088; &#11088;  &#11088;  
-                    <br><br> Delivery cost : 15$~  </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop2.png" height="80" width="100">  </ons-col>
-                <ons-col><font size="5">Knosh foods</font> 
-                    <br><br>&#11088; &#11088; &#11088; 
-                    <br><br> Delivery cost : 10$~ </ons-col> 
-                    
-                </ons-col>
-            </ons-row>
-        </ons-card>
-
-        <ons-card >
-                <ons-row onclick="window.location.href='Resturant_menu.html'">
-                    <ons-col width="50px"><img src="shop3.png" height="80" width="100"> </ons-col>
-                    <ons-col><font size="5">Pizza Hut</font> 
-                        <br><br>&#11088; &#11088; &#11088;  &#11088;  
-                        <br><br> Delivery cost : Free </ons-col> 
-                </ons-row>
-            </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop4.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">KFC</font> 
-                    <br><br>&#11088; &#11088; &#11088;   &#11088;  &#11088;  
-                    <br><br> Delivery cost : 17$~ </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop5.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">Burger King</font> 
-                    <br><br>&#11088; &#11088; &#11088;  &#11088;  
-                    <br><br> Delivery cost : 15$~ </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'"> 
-                <ons-col width="50px"><img src="shop6.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">Smart Bites</font> 
-                    <br><br>&#11088; &#11088; &#11088;  &#11088;  &#11088;  
-                    <br><br> Delivery cost : 18$~ </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop7.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">Harveys</font> 
-                    <br><br>&#11088; &#11088; &#11088;  &#11088;  
-                    <br><br> Delivery cost : 20$~ </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <ons-card>
-            <ons-row onclick="window.location.href='Resturant_menu.html'">
-                <ons-col width="50px"><img src="shop8.png" height="80" width="100"> </ons-col>
-                <ons-col><font size="5">Central perk</font> 
-                    <br><br>&#11088; &#11088; &#11088;  &#11088;  &#11088;  
-                    <br><br> Delivery cost : 12$~ </ons-col> 
-            </ons-row>
-        </ons-card>
-
-        <script src="onsen/js/onsenui.min.js"></script>
-        <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
     
-        <script src="onsen/js/onsenui.js"></script>
-        <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
-        <link rel="stylesheet" href="onsen/css/onsenui.css">
+        <ons-row>
+            <ons-col id="foodlist" ></ons-col>
+            
+        </ons-row>
     
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style  type="text/css">
+
+    </ons-card>
+
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+
+    <script src="onsen/js/onsenui.js"></script>
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
         .page__background {
-            background-image: url("de1.jpg");
-            }
+            background-image: url("de4.jpg");
+        }
+
         .center {
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 50%;
         }
-
-        body {
-            background-image: url("de1.jpg");
-        }
-
 
         * {
             box-sizing: border-box;
@@ -154,5 +99,4 @@
             }
         }
     </style>
-    </ons-page>
-
+</ons-page>

@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Food </title>
+  <title>Food</title>
   
   <script src="onsen/js/onsenui.min.js"></script>
   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
   <script src="onsen/js/onsenui.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="onsen/css/onsenui.css">
 </head>
@@ -15,6 +16,22 @@
 <body>
   <ons-navigator id="myNavigator" page="splitter.html">
   </ons-navigator>
+  <ons-toolbar>
+      <div class="left">
+              <ons-toolbar-button>
+                      <ion-icon style=" margin-top: 6px;" size="large" id="menubtn" name="contact"></ion-icon>
+              </ons-toolbar-button>
+      </div>
+      <div class="toolbar__center" >
+          
+      </div>
+      <div class="right">
+              <ons-toolbar-button>
+                      <ion-icon style=" margin-top: 6px;" size="large" id="cartbtn" name="cart"></ion-icon>
+              </ons-toolbar-button>
+      </div>
+                    
+</ons-toolbar>
  
   <template id="splitter.html">
     <ons-page>

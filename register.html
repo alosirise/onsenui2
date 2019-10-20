@@ -1,23 +1,19 @@
-<on-page>
-    <div class="toolbar">
-        <div class="toolbar__center">
-            Register
-        </div>
+<ons-page id="registerpage">
+    <div>
+        <br><br>
     </div>
 
     <ons-card>
-        <!-- <div class="card"> -->
         <div style="text-align: center; margin-top: 30px;">
-            <!-- <img src="http://www.akodiaonline.com/images/login.png" alt="Onsen UI" style="width: 20% "> -->
             <i class="fas fa-user-plus fa-3x "></i><br><br>
             <p>
-                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+                <ons-input id="email" modifier="underbar" placeholder="Email" float></ons-input>
             </p>
             <p>
                 <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
             </p>
             <p>
-                <ons-input id="Confirmpassword" modifier="underbar" type="password" placeholder="Confirm password"
+                <ons-input id="confirmpassword" modifier="underbar" type="password" placeholder="Confirm password"
                     float></ons-input>
             </p>
             <p>
@@ -36,22 +32,26 @@
                     <div class="radio-button__checkmark radio-button--material__checkmark"></div>
                     Female
                 </label>
-            </div> 
-          
+            </div>
+
             <p style="margin-top: 35px;">
 
-                <ons-button style="background-color : rgb(206, 140, 17)" onclick="login()">Create an Account!
+                <ons-button style="background-color : rgb(206, 140, 17)" id="register">Create an Account!
                 </ons-button><br><br>
                 or <br><br>
-                <ons-button style="background-color : rgb(28, 133, 219)" onclick="window.location.href='login.html'">
+                <ons-button style="background-color : rgb(28, 133, 219)" id="gobacklogin">
                     Back</ons-button><br><br>
 
         </div>
     </ons-card>
 
-     <style>
+    <style>
+        .page__background {
+            background-image: url("de4.jpg");
+        }
+
         body {
             background-color: powderblue;
         }
     </style>
-</on-page>
+</ons-page>
