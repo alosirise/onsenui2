@@ -12,42 +12,25 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var provider = new firebase.auth.GoogleAuthProvider();
 
-var picTure = null;
-
-function setClick(pic) {
-    picTure = pic;
-}
-function getPic() {
-    return picTure;
-}
-function setClick2(pic) {
-    picTure = pic;
+var getcost = [];
+var getfood = [];
+var price = parseInt(0);
 
 
-}
-function getPic2() {
-    return picTure;
-}
-
-var getcost =[];
-var getfood=[];
-var price =parseInt(0);
-
-
-function gettotal(food,cost){
+function gettotal(food, cost) {
     console.log(food);
     console.log(cost);
 
-    price +=parseInt(cost);
+    price += parseInt(cost);
     getfood.push(food);
     getcost.push(cost);
-    console.log("total = "+price);
-    
+    console.log("total = " + price);
+
     window.alert("Add to cart success!");
 
-    document.getElementById('totalbtn').innerText = "Total = " + price +" $";
+    document.getElementById('totalbtn').innerText = "Total = " + price + " $";
     $("#totalbtn").click(function () {
-        
+
         $("#content")[0].load("payment.html");
     });
 }
@@ -147,7 +130,7 @@ document.addEventListener('init', function (event) {
         db.collection("recommend").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
 
-                var item2 = `<ons-carousel-item modifier="nodivider" id=${doc.data().name} onclick="setClick('${doc.data().pic}')"class="recomended_item">
+                var item2 = `<ons-carousel-item modifier="nodivider" id=${doc.data().name} class="recomended_item">
                             <div class="thumbnail" >
                             <img src="${doc.data().pic}"
                               height="100%" width="100%">
@@ -173,11 +156,10 @@ document.addEventListener('init', function (event) {
                 localStorage.setItem("selectedCategory", "Pizzahut");
                 $("#content")[0].load("Resturant_menu.html");
             });
-            $("#Central").click(function () {
-                localStorage.setItem("selectedCategory", "Central");
+            $("#swensen").click(function () {
+                localStorage.setItem("selectedCategory", "swensen");
                 $("#content")[0].load("Resturant_menu.html");
             });
-
 
             $("#allresturant").click(function () {
                 $("#content")[0].load("Allresturant.html");
@@ -238,14 +220,16 @@ document.addEventListener('init', function (event) {
         db.collection("restaurant").where("category", "==", category).get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
-                  
-                    var item = `<ons-card><ons-col id= ${doc.data().name} onclick="setClick2('${doc.data().pic}')"><img src="${doc.data().pic}"
-                height="80" width="80">
-                   <font size="5">${doc.data().name}</font>
-                <br><br>${doc.data().star}
-                <br><br> Delivery cost : 2$~
-            </ons-col></ons-card>`
 
+                    var item = `<ons-card>
+                    <div><ons-col id= ${doc.data().name} ><img src="${doc.data().pic}"
+                                    height="120" width="120"> </div>
+                                    <div>  <font size="5">${doc.data().name}</font> </div>
+                               ${doc.data().star}
+                                <br><br> Delivery cost : 2$~
+                            
+                                </ons-col>
+                            </ons-card>`
                     $("#foodlist").append(item);
                 });
 
@@ -264,13 +248,28 @@ document.addEventListener('init', function (event) {
         db.collection("restaurant").get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
+
+                    var item = ` 
+                    <div style="text-align: center; margin-top: 27px;">
                     
-                    var item = `<ons-card><ons-col id= ${doc.data().name} onclick="setClick2('${doc.data().pic}')"><img src="${doc.data().pic}"
-                height="80" width="80">
-                   <font size="5">${doc.data().name}</font>
-                <br><br>${doc.data().star}
-                <br><br> Delivery cost : 2$~
-            </ons-col></ons-card>`
+                     <ul class="list" >
+                         <li class="list-item">
+                         <div class="list-item__left">
+                             <img src="${doc.data().pic}"  height="90" width="90">
+                         </div>
+         
+                         <div class="list-item__center">
+                             <div class="list-item__title"><font size="5"><br>&nbsp; &nbsp; ${doc.data().name}</font><br><br></div>
+                             <div class="list-item__subtitle">&nbsp; &nbsp; &nbsp; ${doc.data().star}<br><br></div><br><br>
+                         </div>
+         
+                         <div class="list-item__right">
+                             <ons-button modifier="light" id= ${doc.data().name}>Menu</ons-button>
+                         </div>
+                         </li>
+                     </ul>
+                   
+                 </div>`
 
                     $("#foodlist").append(item);
                 });
@@ -301,7 +300,7 @@ document.addEventListener('init', function (event) {
                         (3614 review)
                         <br><br> Delivery cost : 2$~ <br><br>
                         <hr>
-                       
+                
                
                         <br>`
                     $("#menu").append(item);
@@ -311,7 +310,7 @@ document.addEventListener('init', function (event) {
                         var menus = menu[index];
                         var item = `
                         <ons-row>
-                                <ons-col width="150px"><img src="${menus.pic}" height="80" width="100"> </ons-col>
+                                <ons-col width="150px"><img src="${menus.pic}" height="155" width="155"> </ons-col>
                                 <ons-col>
                                 &#11088; &#11088; &#11088; <br><br>
                                 <font size="3">${menus.food}</font>
@@ -332,58 +331,6 @@ document.addEventListener('init', function (event) {
 
                 });
             });
-
-
-        // db.collection("restaurantmenu").where("category", "==", category).get()
-        // .then((querySnapshot) => {
-        //     querySnapshot.forEach((doc) => {
-        //         var item = `
-        //             <ons-row>
-        //                     <ons-col width="150px"><img src="${doc.data().pic}" height="80" width="100"> </ons-col>
-        //                     <ons-col>
-        //                         <font size="3">${doc.data().food}</font>
-        //                         <br><br>&#11088; &#11088; &#11088; <br><br> ${doc.data().cost}
-
-        //                         <ons-button class="button" onclick="window.location.href='payment.html'"style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
-        //                     </ons-col>
-        //                     ${doc.data().detail}
-        //                     <br><br>
-        //             </ons-col>
-        //             </ons-row><br>
-
-        //             <br><br><hr><hr>
-        //             <h2>Main menu</h2><br>
-        //             <br>`   
-
-        //         $("#menu2").append(item);
-        //     });
-        // });
-
-
-        // db.collection("restaurantmenu").where("category", "==", category).get()
-        // .then((querySnapshot) => {
-        //     querySnapshot.forEach((doc) => {
-        //         var item = `
-        //             <ons-row>
-        //                     <ons-col width="150px"><img src="${doc.data().pic2}" height="80" width="100"> </ons-col>
-        //                     <ons-col>
-        //                         <font size="3">${doc.data().food2}</font>
-        //                         <br><br>&#11088; &#11088; &#11088; <br><br> ${doc.data().cost2}
-
-        //                         <ons-button class="button" onclick="window.location.href='payment.html'"style="background-color : rgb(53, 167, 0)" >+</ons-button><br>
-        //                     </ons-col>
-        //                     ${doc.data().detail}
-        //                     <br><br>
-        //             </ons-col>
-        //             </ons-row><br>
-
-        //             <br><br><hr><hr>
-        //             <br>`   
-
-        //         $("#menu3").append(item);
-        //     });
-        // });
-
     }
 
     if (page.id === 'menuPage') {
