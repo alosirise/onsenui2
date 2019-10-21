@@ -11,28 +11,21 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var provider = new firebase.auth.GoogleAuthProvider();
-
+var db = firebase.firestore();
 var getcost = [];
 var getfood = [];
 var price = parseInt(0);
 
-
 function gettotal(food, cost) {
     console.log(food);
     console.log(cost);
-
     price += parseInt(cost);
     getfood.push(food);
     getcost.push(cost);
+
     console.log("total = " + price);
-
-    window.alert("Add to cart success!");
-
+    window.alert("Add [" + food + "] to cart success!");
     document.getElementById('totalbtn').innerText = "Total = " + price + " $";
-    $("#totalbtn").click(function () {
-
-        $("#content")[0].load("payment.html");
-    });
 }
 
 
@@ -40,17 +33,14 @@ function getX() {
     $("#KFC").click(function () {
         localStorage.setItem("selectedCategory", "KFC");
         $("#content")[0].load("Resturant_menu.html");
-
     });
     $("#Burger").click(function () {
         localStorage.setItem("selectedCategory", "Burgerking");
         $("#content")[0].load("Resturant_menu.html");
-
     });
     $("#Harveys").click(function () {
         localStorage.setItem("selectedCategory", "Harveys");
         $("#content")[0].load("Resturant_menu.html");
-
     });
     $("#Pizza").click(function () {
         localStorage.setItem("selectedCategory", "Pizzahut");
@@ -68,12 +58,10 @@ function getX() {
         localStorage.setItem("selectedCategory", "Whole");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#littledessert").click(function () {
         localStorage.setItem("selectedCategory", "littledessert");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#swensen").click(function () {
         localStorage.setItem("selectedCategory", "swensen");
         $("#content")[0].load("Resturant_menu.html");
@@ -82,47 +70,65 @@ function getX() {
         localStorage.setItem("selectedCategory", "mac");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#sweetshop").click(function () {
         localStorage.setItem("selectedCategory", "sweetshop");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#Drinkdo").click(function () {
         localStorage.setItem("selectedCategory", "Drinkdo");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#nampung").click(function () {
         localStorage.setItem("selectedCategory", "nampung");
         $("#content")[0].load("Resturant_menu.html");
     });
-
     $("#oldfruit").click(function () {
         localStorage.setItem("selectedCategory", "oldfruits");
         $("#content")[0].load("Resturant_menu.html");
     });
-
 }
 
-var db = firebase.firestore();
+
 $("#menubtn").click(function () {
     $("#sidemenu")[0].open();
 });
-
 $("#cartbtn").click(function () {
     $("#content")[0].load("payment.html");
     $("#sidemenu")[0].close();
 });
 
+
 document.addEventListener('init', function (event) {
     var page = event.target;
-
 
     if (page.id === 'paymentpage') {
         console.log("Payment");
         document.getElementById("toolbar").innerHTML = "Payment";
+        console.log(getfood.length);
+
+        for (i = 0; i < getfood.length; i++) {
+            console.log("asdasd");
+            var detail =    
+            `<ons-row>
+            <ons-col>
+                <span><br><br></span>
+            </ons-col>
+            <br>
+            <ons-col>
+                <span><br>${getfood[i]}</span>
+            </ons-col>
+            <br>
+            <ons-col>
+                <span><br>${getcost[i]}</span>
+            </ons-col>      
+            </ons-row>`
+
+            $("#details").append(detail);
+        }
+        $("#total").append("<center><h2>Total = " + price + " $</h2></center>");
+
     }
+
 
     if (page.id === 'homePage') {
         console.log("Category[Home]");
@@ -232,11 +238,9 @@ document.addEventListener('init', function (event) {
                             </ons-card>`
                     $("#foodlist").append(item);
                 });
-
                 getX();
             });
     }
-
 
 
     if (page.id === 'allresturantpage') {
@@ -267,8 +271,7 @@ document.addEventListener('init', function (event) {
                              <ons-button modifier="light" id= ${doc.data().name}>Menu</ons-button>
                          </div>
                          </li>
-                     </ul>
-                   
+                     </ul>            
                  </div>`
 
                     $("#foodlist").append(item);
@@ -278,12 +281,14 @@ document.addEventListener('init', function (event) {
     }
 
 
-
-
     if (page.id === 'resturantmenu') {
-        document.getElementById("toolbar").innerHTML = "Returant Menu";
-        var category = localStorage.getItem("selectedCategory");
+        var category = localStorage.getItem("selectedCategory"); 
+        document.getElementById("toolbar").innerHTML = category;
         console.log("resturantmenu :" + category);
+        $("#totalbtn").click(function () {
+            $("#content")[0].load("payment.html");
+        });
+
         $("#header").html(category);
 
         db.collection("restaurantmenu").where("category", "==", category).get()
@@ -300,8 +305,6 @@ document.addEventListener('init', function (event) {
                         (3614 review)
                         <br><br> Delivery cost : 2$~ <br><br>
                         <hr>
-                
-               
                         <br>`
                     $("#menu").append(item);
 
@@ -312,7 +315,7 @@ document.addEventListener('init', function (event) {
                         <ons-row>
                                 <ons-col width="150px"><img src="${menus.pic}" height="155" width="155"> </ons-col>
                                 <ons-col>
-                                &#11088; &#11088; &#11088; <br><br>
+                                ${menus.star} <br><br>
                                 <font size="3">${menus.food}</font>
                                   <br><br> ${menus.cost}    
                                     <br><br>
@@ -328,10 +331,10 @@ document.addEventListener('init', function (event) {
                         $("#menu2").append(item);
 
                     }
-
                 });
             });
     }
+
 
     if (page.id === 'menuPage') {
 
@@ -405,8 +408,6 @@ document.addEventListener('init', function (event) {
     }
 
 
-
-
     if (page.id === 'registerpage') {
         document.getElementById("toolbar").innerHTML = "Register";
         console.log("registerpage");
@@ -445,6 +446,5 @@ document.addEventListener('init', function (event) {
             $("#content")[0].load("login.html");
         });
     }
-
 });
 
