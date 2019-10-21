@@ -2,8 +2,9 @@
 
     <ons-page>
         <div>
-            <br><br>
+            <br><br><br>
         </div>
+        
         <div style="text-align: center; margin-top: 30px;">
             <label class="radio-button radio-button--material">
                 <input type="radio" class="radio-button__input radio-button--material__input" name="r"
@@ -19,22 +20,21 @@
             </label>
         </div><br>
 
-        <div style="  background: linear-gradient(to bottom, #ffcccc 0%, #ff0000 100%); padding:2px; margin : 17px;">
+        <div style="  background: linear-gradient(to bottom, #ffcccc 0%, #ff0000 100%); padding:2px; ">
             <center>
                 <h2 style="color:rgb(0, 0, 0)"> ร้านอาหารแนะนำ</h2>
             </center>
-        </div>
-
+        </div><br><br><hr><br>
         <div class="recomended">
             <ons-carousel auto-scroll auto-scroll-ratio="0.5" auto-refresh swipeable overscrollable item-width="155px"
                 class="recomended_list" id="recommend">
             </ons-carousel>
-        </div>
+        </div><br><hr><br><br>
 
         <div class="row" id="menucategory">
         </div>
 
-        <button class="button--large--cta"
+        <button class="button--large--cta" id="allresturant"
             style="background-color : rgb(51, 140, 212); width: 40%; margin: 0 auto;">All resturants</button>
     </ons-page>
     <!-- </template> -->
@@ -160,7 +160,7 @@
         }
 
         .recomended_list {
-            height: 150px;
+            height: 160 px;
         }
 
         /* 

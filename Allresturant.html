@@ -1,0 +1,87 @@
+<ons-page id='allresturantpage'>
+      
+        <div>
+            <br><br>
+        </div>
+    
+        <br>
+        <p style="text-align: center; margin-top: 10px;">
+            <ons-search-input placeholder="Search" onchange="ons.notification.alert('Searched for: ' + this.value)">
+                   
+            </ons-search-input>
+        </p><br>
+    
+        
+            <ons-row>
+                <ons-col id="foodlist" ></ons-col>
+            </ons-row>
+        
+    
+        </ons-card>
+    
+        <script src="onsen/js/onsenui.min.js"></script>
+        <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    
+        <script src="onsen/js/onsenui.js"></script>
+        <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
+        <link rel="stylesheet" href="onsen/css/onsenui.css">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style type="text/css">
+            .page__background {
+                background-image: url("de4.jpg");
+            }
+    
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+    
+            * {
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+    
+            /* Float four columns side by side */
+            .column {
+                float: left;
+                width: 25%;
+                padding: 0 10px;
+            }
+    
+            /* Remove extra left and right margins, due to padding in columns */
+            .row {
+                margin: 0 -5px;
+            }
+    
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+    
+            /* Style the counter cards */
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
+                padding: 16px;
+                text-align: center;
+                background-color: #80d86a;
+            }
+    
+            /* Responsive columns - one column layout (vertical) on small screens */
+            @media screen and (max-width: 600px) {
+                .column {
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+    </ons-page>

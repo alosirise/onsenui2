@@ -8,7 +8,8 @@
   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
   <script src="onsen/js/onsenui.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="onsen/css/onsenui.css">
 </head>
@@ -22,7 +23,7 @@
                       <ion-icon style=" margin-top: 6px;" size="large" id="menubtn" name="contact"></ion-icon>
               </ons-toolbar-button>
       </div>
-      <div class="toolbar__center" >
+      <div class="toolbar__center" id="toolbar" >
           
       </div>
       <div class="right">
