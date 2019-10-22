@@ -8,26 +8,48 @@ var firebaseConfig = {
     appId: "1:993618026845:web:661c7c768e2cbe20cfc8b4",
     measurementId: "G-Z20297TKBR"
 };
+
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 var provider = new firebase.auth.GoogleAuthProvider();
 var db = firebase.firestore();
+var users=true;
 var getcost = [];
 var getfood = [];
 var price = parseInt(0);
+var x = 0;
+firebase.auth().onAuthStateChanged(function (user) {
+    users=user;
+    if (user) {
+        console.log("users");
+        $("#gologout").show();
+        $("#gopayment").show();
+        $("#cartbtn").show();
+        $("#gologin").hide();
+    } else {
+        console.log("nousers");
+        $("#gologout").hide();
+        $("#gopayment").hide();
+        $("#cartbtn").hide();
+        $("#gologin").show();
+    }
+});
 
 function gettotal(food, cost) {
-    console.log(food);
-    console.log(cost);
-    price += parseInt(cost);
-    getfood.push(food);
-    getcost.push(cost);
-
-    console.log("total = " + price);
-    window.alert("Add [" + food + "] to cart success!");
-    document.getElementById('totalbtn').innerText = "Total = " + price + " $";
+    var user = firebase.auth().currentUser;
+    if (user) {
+        x = parseInt(cost);
+        console.log(food);
+        console.log(cost);
+        price += parseInt(cost);
+        getfood.push(food);
+        getcost.push(cost);
+        console.log("total = " + price);
+        window.alert("Add [" + food + "] to cart success!");
+        document.getElementById('totalbtn').innerText = "Total = " + price + " $";
+    } else {
+        $("#content")[0].load("login.html");
+    }
 }
-
 
 function getX() {
     $("#KFC").click(function () {
@@ -100,35 +122,6 @@ $("#cartbtn").click(function () {
 
 document.addEventListener('init', function (event) {
     var page = event.target;
-
-    if (page.id === 'paymentpage') {
-        console.log("Payment");
-        document.getElementById("toolbar").innerHTML = "Payment";
-        console.log(getfood.length);
-
-        for (i = 0; i < getfood.length; i++) {
-            console.log("asdasd");
-            var detail =    
-            `<ons-row>
-            <ons-col>
-                <span><br><br></span>
-            </ons-col>
-            <br>
-            <ons-col>
-                <span><br>${getfood[i]}</span>
-            </ons-col>
-            <br>
-            <ons-col>
-                <span><br>${getcost[i]}</span>
-            </ons-col>      
-            </ons-row>`
-
-            $("#details").append(detail);
-        }
-        $("#total").append("<center><h2>Total = " + price + " $</h2></center>");
-
-    }
-
 
     if (page.id === 'homePage') {
         console.log("Category[Home]");
@@ -282,15 +275,18 @@ document.addEventListener('init', function (event) {
 
 
     if (page.id === 'resturantmenu') {
-        var category = localStorage.getItem("selectedCategory"); 
+        var category = localStorage.getItem("selectedCategory");
         document.getElementById("toolbar").innerHTML = category;
         console.log("resturantmenu :" + category);
-        $("#totalbtn").click(function () {
-            $("#content")[0].load("payment.html");
-        });
-
+        document.getElementById('totalbtn').innerText = "Total = " + price + " $";
         $("#header").html(category);
-
+        
+            $("#totalbtn").click(function () {
+            if (users){
+                $("#content")[0].load("payment.html");
+                }else{ $("#content")[0].load("login.html");}
+            });
+       
         db.collection("restaurantmenu").where("category", "==", category).get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -324,12 +320,10 @@ document.addEventListener('init', function (event) {
                                 </ons-col>     
                                 <br><br>
                         </ons-col>
-                        </ons-row><br>
-                        
+                        </ons-row><br>     
                         <br><hr><hr>
                         <br>`
                         $("#menu2").append(item);
-
                     }
                 });
             });
@@ -337,7 +331,6 @@ document.addEventListener('init', function (event) {
 
 
     if (page.id === 'menuPage') {
-
         console.log("menuPage");
         $("#gologin").click(function () {
             $("#content")[0].load("login.html");
@@ -362,36 +355,77 @@ document.addEventListener('init', function (event) {
             }).catch(function (error) {
                 console.log(error.message);
             });
+            $("#carddetail").empty();
+            getcost = [];
+            getfood = [];
+            price = parseInt(0);
+            x = 0;
+            alert("Sign out success !!");
         });
     }
 
+    if (page.id === 'paymentpage') {
+        console.log("Payment");
+        document.getElementById("toolbar").innerHTML = "Payment";
+
+        if (x === 0) {
+             $("#carddetail").empty();
+        } else {
+                for (i = 0; i < getfood.length; i++) {
+                    var detail =
+                        `<ons-row>
+                <ons-col>
+                    <span><br>1</span>
+                </ons-col>
+                <br>
+                <ons-col>
+                    <span><br>${getfood[i]}</span>
+                </ons-col>
+                <br>
+                <ons-col>
+                    <span><br>${getcost[i]}</span>
+                </ons-col>      
+                </ons-row>`
+                    $("#details").append(detail);
+            }
+            $("#total").append("<center><h3>Delivery cost = 2 $</h3></center><center><h2>Total = " + (price + 2) + " $</h2></center>");
+        }
+
+        $("#pay1").click(function () {
+            $("#carddetail").empty();
+            getcost = [];
+            getfood = [];
+            price = parseInt(0);
+            x = 0;
+            alert("Pay success !!");
+        });
+        $("#pay3").click(function () {
+            $("#carddetail").empty();
+            getcost = [];
+            getfood = [];
+            price = parseInt(0);
+            x = 0;
+            alert("Pay success !!");
+        });
+
+    }
 
     if (page.id === 'loginPage') {
         console.log("loginPage");
         document.getElementById("toolbar").innerHTML = "Login";
         $("#googlelogin").click(function () {
             console.log("google");
-
             firebase.auth().signInWithRedirect(provider);
-            // firebase.auth().signInWithPopup(provider).then(function (result) {
-
-            //     var token = result.credential.accessToken;
-            //     var user = result.user;
-            //     $("#content")[0].load("home.html");
-            // }).catch(function (error) {
-            //     var errorCode = error.code;
-            //     var errorMessage = error.message;
-            //     var email = error.email;
-            //     var credential = error.credential;
-            // });
         })
 
         $("#signinbtn").click(function () {
             var username = $("#username").val();
             var password = $("#password").val();
-            firebase.auth().signInWithEmailAndPassword(username, password).then(function () {
+            firebase.auth().signInWithEmailAndPassword(username, password).then(function(){
+
                 $("#content")[0].load("home.html");
                 $("#sidemenu")[0].close();
+
             }).catch(function (error) {
                 console.log(error.message);
                 alert("Id or password is wrong");
@@ -411,6 +445,7 @@ document.addEventListener('init', function (event) {
     if (page.id === 'registerpage') {
         document.getElementById("toolbar").innerHTML = "Register";
         console.log("registerpage");
+
         $("#register").click(function () {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
