@@ -12,6 +12,18 @@
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   <link rel="stylesheet" href="onsen/css/onsen-css-components.css">
   <link rel="stylesheet" href="onsen/css/onsenui.css">
+
+  <link rel="manifest" href="/manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+              .then((reg) => {
+                console.log('Service worker registered.', reg);
+              });
+        });
+      }
+    </script>
 </head>
 
 <body>
